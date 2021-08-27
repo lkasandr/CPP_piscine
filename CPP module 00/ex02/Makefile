@@ -1,22 +1,35 @@
-NAME = account
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lkasandr <lkasandr@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/08/24 10:02:41 by lkasandr          #+#    #+#              #
+#    Updated: 2021/08/25 16:25:27 by lkasandr         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRCS = account.cpp
+NAME =		account
+SRCS =		./Account.cpp ./tests.cpp
 
-HEADER = account.hpp
 
-OBJS = $(SRCS:cpp=o)
+HEADER =	./Account.hpp
+
+OBJS =		$(SRCS:cpp=o)
 
 %.o:		%.cpp $(HEADER)
-			${CLANG} $(CPPFLAGS) -c $< -o ${<:.cpp=.o}
+			${CC} $(CFLAGS) -c $< -o ${<:.cpp=.o}
 
-CLANG =		clang++
-CPPFLAGS =	-Wall -Wextra -Werror -std=c++98
+CC =		clang++
+CFLAGS =	-Wall -Wextra -Werror
+OPTFLAGS =  -std=c++98
 RM =		rm -f
 
 all :		${NAME}
 
 $(NAME) :	$(OBJS) 
-			$(CLANG) $(CPPFLAGS) -o ${NAME} $(OBJS) -I$(HEADER)
+			$(CC) $(CFLAGS) $(OPTFLAGS) -o ${NAME} $(OBJS) -I$(HEADER)
 
 clean :		
 			$(RM) $(OBJS)

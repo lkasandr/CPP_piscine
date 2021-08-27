@@ -40,14 +40,14 @@ public:
 
 private:
 
-	static int	_nbAccounts;         	  //номер аккаунта
-	static int	_totalAmount;       	 //общее количество
-	static int	_totalNbDeposits;  		//общее кол-во вкладов
-	static int	_totalNbWithdrawals;   //общее кол-во с розыгрышами
+	static int	_nbAccounts;
+	static int	_totalAmount;
+	static int	_totalNbDeposits;
+	static int	_totalNbWithdrawals;
 
 	static void	_displayTimestamp( void );
 
-	int				_accountIndex;    
+	int				_accountIndex;
 	int				_amount;
 	int				_nbDeposits;
 	int				_nbWithdrawals;

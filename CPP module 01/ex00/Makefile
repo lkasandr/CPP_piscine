@@ -1,12 +1,10 @@
-NAME = phonebook
+NAME = megaphone
 
-SRCS = ./phonebook.cpp ./contact.cpp
-
-HEADER = phonebook.hpp
+SRCS = megaphone.cpp
 
 OBJS = $(SRCS:cpp=o)
 
-%.o:		%.cpp $(HEADER)
+%.o:		%.cpp
 			${CLANG} $(CPPFLAGS) -c $< -o ${<:.cpp=.o}
 
 CLANG =		clang++
@@ -16,7 +14,7 @@ RM =		rm -f
 all :		${NAME}
 
 $(NAME) :	$(OBJS) 
-			$(CLANG) $(CPPFLAGS) -o ${NAME} $(OBJS) -I$(HEADER)
+			$(CLANG) $(CPPFLAGS) -o ${NAME} $(OBJS)
 
 clean :		
 			$(RM) $(OBJS)
