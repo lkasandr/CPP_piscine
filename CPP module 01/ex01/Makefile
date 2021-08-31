@@ -1,6 +1,6 @@
 NAME = zombie
 
-SRCS = ./main.cpp ./newZombie.cpp ./randomChump.cpp ./Zombie.cpp
+SRCS = ./main.cpp ./ZombieHorde.cpp ./Zombie.cpp
 
 HEADER = ./Zombie.hpp
 
