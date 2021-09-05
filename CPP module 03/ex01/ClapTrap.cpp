@@ -3,30 +3,30 @@
 ClapTrap::ClapTrap()
 {
 	this->name = "noname";
-	this->hitpoints = 10;
-	this->energyHitpoints = 10;
-	this->attackDamage = 0;
-	std::cout << "The constructor for " << this->name << " is called." << std::endl;
+	this->hitpoints = 100;
+	this->energyHitpoints = 50;
+	this->attackDamage = 20;
+	std::cout << "ClapTrap: constructor is called." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	this->name = name;
-	this->hitpoints = 10;
-	this->energyHitpoints = 10;
-	this->attackDamage = 0;
-	std::cout << "The constructor for " << this->name << " is called." << std::endl;
+	this->hitpoints = 100;
+	this->energyHitpoints = 50;
+	this->attackDamage = 20;
+	std::cout << "ClapTrap: constructor with name is called." << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor for " << this->name << " is called." << std::endl;
+	std::cout << "ClapTrap: destructor for " << this->name << " is called." << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &claptrap) : name(claptrap.name), hitpoints(claptrap.hitpoints), 
 energyHitpoints(claptrap.energyHitpoints), attackDamage(claptrap.attackDamage)
 {
-	std::cout << "The copy constructor for " << this->name << " is called." << std::endl;
+	std::cout << "ClapTrap: copy constructor is called." << std::endl;
 }
 
 ClapTrap& ClapTrap::operator= (const ClapTrap &claptrap)
@@ -68,13 +68,13 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->hitpoints + amount > 10)
-		std::cout << "ClapTrap " << this->name << " repaired " << 10 - this->hitpoints << " hitpoints" << std::endl;
+	if (this->hitpoints + amount > 100)
+		std::cout << "ClapTrap " << this->name << " repaired " << 100 - this->hitpoints << " hitpoints" << std::endl;
 	else
 		std::cout << "ClapTrap " << this->name << " repaired " << amount << " hitpoints" << std::endl;
 	
-	if (this->energyHitpoints + amount > 10)
-		std::cout << "ClapTrap " << this->name << " repaired " << 10 - this->energyHitpoints << " energy hitpoints" << std::endl;
+	if (this->energyHitpoints + amount > 100)
+		std::cout << "ClapTrap " << this->name << " repaired " << 100 - this->energyHitpoints << " energy hitpoints" << std::endl;
 	else
 		std::cout << "ClapTrap " << this->name << " repaired " << amount << " hitpoints" << std::endl;
 }
