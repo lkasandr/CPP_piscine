@@ -29,15 +29,37 @@ energyHitpoints(claptrap.energyHitpoints), attackDamage(claptrap.attackDamage)
 	std::cout << "The copy constructor for " << this->name << " is called." << std::endl;
 }
 
-ClapTrap& ClapTrap::operator= (const ClapTrap &claptrap)
+std::string ClapTrap::getName(void) const
 {
-	this->name = claptrap.name;
-	this->hitpoints = claptrap.hitpoints;
-	this->energyHitpoints = claptrap.energyHitpoints;
-	this->attackDamage = claptrap.attackDamage;
-	return *this;
+	return this->name;
 }
 
+unsigned int ClapTrap::getHitpoints(void) const
+{
+	return this->hitpoints;
+}
+
+unsigned int ClapTrap::getEnergyHitpoints(void) const
+{
+	return this->energyHitpoints;
+}
+
+unsigned int ClapTrap::getAttackDamage(void) const
+{
+	return this->attackDamage;
+}
+
+ClapTrap& ClapTrap::operator= (const ClapTrap &claptrap)
+{
+	if (&claptrap == this)
+		return *this;
+	this->name = claptrap.getName();
+	this->hitpoints = claptrap.getHitpoints();
+	this->energyHitpoints = claptrap.getEnergyHitpoints();
+	this->attackDamage = claptrap.getAttackDamage();
+
+	return *this;
+}
 
 void ClapTrap::attack(std::string const & target)
 {

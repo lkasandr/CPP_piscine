@@ -13,6 +13,8 @@ int main()
     ScavTrap seven(five);
     ScavTrap eight("Vasilisa");
 
+    three = two;
+    seven = six;
     two.attack("Petya");
     four.takeDamage(1);
     four.attack("Vasya");
@@ -28,6 +30,9 @@ int main()
     six.beRepaired(10);
     eight.guardGate();
     six.guardGate();
+
+    three.attack("abc");
+    seven.attack("def");
 
     return 0;
 }

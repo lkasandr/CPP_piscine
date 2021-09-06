@@ -18,9 +18,9 @@ ScavTrap::ScavTrap(std::string name)
     std::cout << "ScavTrap: constructor with name is called." << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &scavtrap) 
+ScavTrap::ScavTrap(const ScavTrap &scavtrap)
 {
-    *this = scavtrap;
+	*this = scavtrap;
     std::cout << "ScavTrap: copy constructor is called." << std::endl;
 }
 
@@ -28,10 +28,10 @@ ScavTrap& ScavTrap::operator= (const ScavTrap &scavtrap)
 {
 	if (&scavtrap == this)
 		return *this;
-    this->name = scavtrap.getName();
-	this->hitpoints = scavtrap.getHitpoints();
-	this->energyHitpoints = scavtrap.getEnergyHitpoints();
-	this->attackDamage = scavtrap.getAttackDamage();
+    this->name = scavtrap.name;
+	this->hitpoints = scavtrap.hitpoints;
+	this->energyHitpoints = scavtrap.energyHitpoints;
+	this->attackDamage = scavtrap.attackDamage;
 	return *this;
 }
 

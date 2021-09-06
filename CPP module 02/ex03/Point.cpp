@@ -30,7 +30,7 @@ Fixed const Point::getY(void) const
 
 Point& Point::operator= (const Point &point)
 {
-	point.getX();
-
+	if (&point == this)
+		return *this;
 	return *this;
 }
