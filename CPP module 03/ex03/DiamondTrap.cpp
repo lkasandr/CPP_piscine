@@ -1,8 +1,9 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap()
 {
 	this->name = "noname";
+	ClapTrap::name = "noname_clap_name";
 	this->hitpoints = this->FragTrap::hp_buf;
 	this->energyHitpoints = this->ScavTrap::ehp_buf;
 	this->attackDamage = this->FragTrap::ad_buf;
@@ -41,4 +42,14 @@ DiamondTrap::~DiamondTrap()
 	std::cout << "DiamondTrap: " << this->name << " destructor is called." << std::endl;
 }
 
+void DiamondTrap::attack(std::string const & target)
+{
+	std::cout << "DiamonTrap attack: " << std::endl;
+	this->ScavTrap::attack(target);
+}
+
+void DiamondTrap::whoAmI(void)
+{
+	std::cout << "DiamondTrap: " << this->name << " ClapTrap: " << ClapTrap::name << std::endl;
+}
 
