@@ -4,30 +4,31 @@
 int main()
 {
 	int index = 0;
-	// const Animal* j = new Dog();
-    // const Animal* i = new Cat();
     
-	Animal* animals = new Animal[10];
+	Animal* animals[4];
 
-	while (index < 5)
+	while (index < 2)
 	{
 		animals[index] = new Dog();
 		index++;
 	}
-	while (index < 10)
+	while (index < 4)
 	{
 		animals[index] = new Cat();
 		index++;
 	}
 	index = 0;
-	while (index < 10)
+	while (index < 4)
 	{
-		animals[index].makeSound();
+		animals[index]->makeSound();
 		index++;
 	}
 
-
-	// delete j;//should not create a leak
-	// delete i;
-	// delete [] animals;
+	index = 0;
+	while(index < 4)
+	{
+		delete animals[index];
+		index++;
+	}
+	return 0;
 }
