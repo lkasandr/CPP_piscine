@@ -10,13 +10,13 @@ OBJS = $(SRCS:cpp=o)
 			${CLANG} $(CPPFLAGS) -c $< -o ${<:.cpp=.o}
 
 CLANG =		clang++
-CPPFLAGS =	-Wall -Wextra  -std=c++98
+CPPFLAGS =	-Wall -Wextra -Werror -std=c++98
 RM =		rm -f
 
 all :		${NAME}
 
 $(NAME) :	$(OBJS) 
-			$(CLANG) $(CPPFLAGS) -o ${NAME} $(OBJS) -I
+			$(CLANG) $(CPPFLAGS) -o ${NAME} $(OBJS)
 
 clean :		
 			$(RM) $(OBJS)

@@ -36,7 +36,11 @@ Character& Character::operator=(const Character &player)
 
 Character::~Character()
 {
-
+	for (int i=0; i < 4; ++i)
+	{
+		if (this->equipedArray[i])
+			delete this->equipedArray[i];
+	}
 }
 
 std::string const & Character::getName() const
@@ -49,7 +53,7 @@ void Character::equip(AMateria* m)
 	int i = 0;
 	while (i < 4)
 	{
-		if (this->equipedArray[i] != 0)
+		if (!this->equipedArray[i])
 			this->equipedArray[i] = m;
 		i++;
 	}
@@ -58,7 +62,7 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (idx > 4 || idx < 1)
+	if (idx > 3 || idx < 0)
 	{
 		std::cout << "Wrong index (1 - 4)" << std::endl;
 		return;
@@ -72,13 +76,13 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx > 4 || idx < 1)
+	if (idx > 3 || idx < 0)
 	{
 		std::cout << "Wrong index (1 - 4)" << std::endl;
 		return;
 	}
-	else
+	else if (idx <= 3 && idx >= 0 && this->equipedArray[idx])
 	{
-		this->equipedArray[idx]->use(target);
+		this->equipedArray[idx]->use(target);	
 	}
 }
