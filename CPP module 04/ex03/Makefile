@@ -1,8 +1,8 @@
 NAME = animal
 
-SRCS = ./AMateria.cpp ./Character.cpp ./Cure.cpp ./Ice.cpp ./main.cpp
+SRCS = ./AMateria.cpp ./Character.cpp ./Cure.cpp ./Ice.cpp ./main.cpp ./MateriaSource.cpp
 
-HEADER = ./Ice.hpp ./ICharacter.hpp ./Cure.hpp ./Character.hpp ./AMateria.hpp
+HEADER = ./Ice.hpp ./ICharacter.hpp ./Cure.hpp ./Character.hpp ./AMateria.hpp ./IMateriaSource.hpp ./MateriaSource.hpp
 
 OBJS = $(SRCS:cpp=o)
 

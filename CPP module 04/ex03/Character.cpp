@@ -2,17 +2,22 @@
 
 Character::Character() : name("noname")
 {
-	for (int i=0; i < 4; ++i)
+	for (int i=0; i < 4; i++)
 		equipedArray[i] = 0;
 }
 
 Character::Character(std::string name) : name(name)
 {
-	
+	for (int i=0; i < 4; i++)
+		equipedArray[i] = 0;
 }
 
 Character::Character(const Character &player)
 {
+	for (int i=0; i < 4; i++)
+	{
+		this->equipedArray[i] = 0;
+	}
 	*this = player;
 }
 
@@ -21,12 +26,12 @@ Character& Character::operator=(const Character &player)
 	if (this == &player)
 		return *this;
 	this->name = player.name;
-	for (int i=0; i < 4; ++i)
+	for (int i=0; i < 4; i++)
 	{
 		if (equipedArray[i])
 			delete equipedArray[i];
 	}
-	for (int i=0; i < 4; ++i)
+	for (int i=0; i < 4; i++)
 	{
 		if (!equipedArray[i])
 			equipedArray[i] = player.equipedArray[i]->clone();
@@ -36,7 +41,7 @@ Character& Character::operator=(const Character &player)
 
 Character::~Character()
 {
-	for (int i=0; i < 4; ++i)
+	for (int i=0; i < 4; i++)
 	{
 		if (this->equipedArray[i])
 			delete this->equipedArray[i];
@@ -54,35 +59,36 @@ void Character::equip(AMateria* m)
 	while (i < 4)
 	{
 		if (!this->equipedArray[i])
+		{
 			this->equipedArray[i] = m;
+			break;
+		}
 		i++;
 	}
-	std::cout << "equiped" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
 	if (idx > 3 || idx < 0)
 	{
-		std::cout << "Wrong index (1 - 4)" << std::endl;
+		std::cout << "Wrong index" << std::endl;
 		return;
 	}
 	else
 	{
-		this->equipedArray[idx] = NULL;
+		this->equipedArray[idx] = 0;
 	}
-	std::cout << "unequiped" << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx > 3 || idx < 0)
+	if ((idx <= 3) && (idx >= 0) && this->equipedArray[idx])
 	{
-		std::cout << "Wrong index (1 - 4)" << std::endl;
-		return;
+		this->equipedArray[idx]->use(target);
 	}
-	else if (idx <= 3 && idx >= 0 && this->equipedArray[idx])
+	else
 	{
-		this->equipedArray[idx]->use(target);	
+		std::cout << "Wrong index" << std::endl;
+		return;
 	}
 }

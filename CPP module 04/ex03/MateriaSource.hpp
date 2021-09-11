@@ -14,6 +14,7 @@ class MateriaSource : public IMateriaSource
        ~MateriaSource();
        void learnMateria(AMateria* copy);
        AMateria* createMateria(std::string const & type);
+       
 };
 
 #endif
