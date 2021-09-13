@@ -8,11 +8,26 @@
 int main()
 {
     Intern intern;
-    Form* form;
+    Form* form = NULL;
 
     form = intern.makeForm("presidential pardon", "pardon");
+    if (form)
+    {
+        delete form;
+        form = NULL;
+    }
     form = intern.makeForm("robotomy request", "pardon");
+    if (form)
+    {
+        delete form;
+        form = NULL;
+    }
     form = intern.makeForm("shrubbery creation", "pardon");
+    if (form)
+    {
+        delete form;
+        form = NULL;
+    }
 
     try
     {
@@ -22,5 +37,4 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    
 } 
