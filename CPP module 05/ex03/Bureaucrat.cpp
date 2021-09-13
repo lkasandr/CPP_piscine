@@ -74,3 +74,26 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return ("The grade is too low");
 }
+
+void Bureaucrat::signForm(Form &form)
+{
+    if (form.getIndicator() == 1)
+    {
+        std::cout << this->name << " signs " << form.getName() << std::endl;
+        // form.setIndicator(0);
+    }
+    else
+        std::cout << this->name << " can't sign " << form.getName() 
+        << " because it's lunch time" << std::endl;
+}
+
+void Bureaucrat::executeForm (Form const & form) const
+{
+    if ((form.getGradeExecute() >= this->getGrade()) && (form.getIndicator() == 1))
+        std::cout << this->getName() << " executes " << form.getName() << std::endl;
+    else if (form.getGradeExecute() < this->getGrade())
+        std::cout << this->getName() << " can't executes " << form.getName() << " because he has a low grade" << std::endl;
+    else if (form.getIndicator() == 0)
+        std::cout << this->getName() << " can't executes " << form.getName() << " because form is not signed" << std::endl;
+    
+}

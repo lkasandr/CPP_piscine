@@ -1,8 +1,8 @@
-NAME = bureaucrat
+NAME = forma
 
-SRCS = ./main.cpp ./Bureaucrat.cpp
+SRCS = ./main.cpp ./Bureaucrat.cpp ./Form.cpp ./ShrubberyCreationForm.cpp ./RobotomyRequestForm.cpp ./PresidentialPardonForm.cpp ./Intern.cpp
 
-HEADER = ./Bureaucrat.hpp
+HEADER = ./Bureaucrat.hpp ./Form.hpp ./ShrubberyCreationForm.hpp ./RobotomyRequestForm.hpp ./PresidentialPardonForm.hpp ./Intern.hpp
 
 OBJS = $(SRCS:cpp=o)
 
