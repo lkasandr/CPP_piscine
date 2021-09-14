@@ -30,6 +30,6 @@ int main()
     std::cout << forma << std::endl;
     two.signForm(forma);
     
-
+    return 0;
 
 } 

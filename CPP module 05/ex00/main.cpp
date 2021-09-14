@@ -31,5 +31,5 @@ int main()
     {
         std::cerr << exception.what() << std::endl;
     };
-
+    return 0;
 } 
