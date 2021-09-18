@@ -1,4 +1,4 @@
-NAME = sample
+NAME = array
 
 SRCS = ./main.cpp
 
