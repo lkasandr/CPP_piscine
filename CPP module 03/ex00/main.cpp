@@ -3,16 +3,16 @@
 int main()
 {
     ClapTrap one;
-    ClapTrap two("Vasya");
+    ClapTrap two("Player1");
     ClapTrap three(one);
-    ClapTrap four("Petya");
+    ClapTrap four("Player2");
     ClapTrap five(two);
 
     one = two;
 
-    two.attack("Petya");
+    two.attack("Player2");
     four.takeDamage(1);
-    four.attack("Vasya");
+    four.attack("Player1");
     two.takeDamage(2);
     four.beRepaired(3);
     two.beRepaired(3);

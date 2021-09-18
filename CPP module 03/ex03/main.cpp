@@ -12,9 +12,9 @@ int main()
     // b.whoAmI();
 
 
-    DiamondTrap clown("clown");
+    DiamondTrap clown("Player1");
     clown.whoAmI();
-    clown.attack("goatman");
+    clown.attack("Player2");
     clown.guardGate();
     clown.highFivesGuys();
     // return 0;

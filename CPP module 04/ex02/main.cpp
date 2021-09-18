@@ -3,20 +3,40 @@
 
 int main()
 {
-	// const Animal* meta = new Animal();
+	const Animal* meta = new Animal();
+	Animal animal;
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
 
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	basic.getBrain();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
+	int index = 0;
+    
+	Animal* animals[4];
 
-	i->makeSound();
-	j->makeSound();
-	// meta->makeSound();
-	// delete meta;
-	delete j;
-	delete i;
+	while (index < 2)
+	{
+		animals[index] = new Dog();
+		index++;
+	}
+	while (index < 4)
+	{
+		animals[index] = new Cat();
+		index++;
+	}
+	index = 0;
+	while (index < 4)
+	{
+		animals[index]->makeSound();
+		index++;
+	}
 
-
+	index = 0;
+	while(index < 4)
+	{
+		delete animals[index];
+		index++;
+	}
 }

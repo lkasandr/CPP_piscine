@@ -8,8 +8,8 @@ Cat::Cat() : Animal("Cat")
 
 Cat::Cat(const Cat &cat)
 {
+	this->brain = NULL;
 	*this = cat;
-	std::cout << "Cat: copy constructor called" << std::endl;
 }
 
 Cat& Cat::operator= (const Cat &cat)
@@ -17,15 +17,28 @@ Cat& Cat::operator= (const Cat &cat)
 	if (this == &cat)
 		return *this;
 	this->type = cat.type;
-	delete this->brain;
+	if (this->brain)
+	{
+		delete this->brain;
+		this->brain = NULL;
+	}
 	this->brain = new Brain(*cat.brain);
 	return *this;
 }
 
 Cat::~Cat()
 {
-	delete this->brain;
+	if (this->brain)
+	{
+		delete this->brain;
+		this->brain = NULL;
+	}
 	std::cout << "Cat: destructor called" << std::endl;
+}
+
+Brain* Cat::getBrain(void)
+{
+	return this->brain;
 }
 
 void Cat::makeSound(void) const

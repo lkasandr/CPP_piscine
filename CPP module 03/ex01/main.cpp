@@ -4,27 +4,27 @@
 int main()
 {
     ClapTrap one;
-    ClapTrap two("Vasya");
+    ClapTrap two("Player1");
     ClapTrap three(one);
-    ClapTrap four("Petya");
+    ClapTrap four("Player2");
 
     ScavTrap five;
-    ScavTrap six("Marina");
+    ScavTrap six("Player3");
     ScavTrap seven(five);
-    ScavTrap eight("Vasilisa");
+    ScavTrap eight("Player4");
 
     three = two;
     seven = six;
-    two.attack("Petya");
+    two.attack("Player2");
     four.takeDamage(1);
-    four.attack("Vasya");
+    four.attack("Player1");
     two.takeDamage(2);
     four.beRepaired(3);
     two.beRepaired(3);
 
-    six.attack("Vasilisa");
+    six.attack("Player4");
     eight.takeDamage(10);
-    eight.attack("Marina");
+    eight.attack("Player3");
     six.takeDamage(10);
     eight.beRepaired(10);
     six.beRepaired(10);

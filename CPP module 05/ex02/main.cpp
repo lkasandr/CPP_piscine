@@ -17,12 +17,19 @@ int main()
 
     std::cout << "Bureaucrat One\n";
     formaOne.beSigned(one);
-    one.signForm(formaOne);
     formaOne.execute(one);
     std::cout << "\n";
 
 
     std::cout << "Bureaucrat Three\n";
+    try
+    {
+        formaOne.beSigned(three);
+    }
+    catch(const std::exception &exception) 
+    {
+        std::cerr << exception.what() << std::endl;
+    };
     try
     {
         formaOne.execute(three);
@@ -35,7 +42,6 @@ int main()
     
     std::cout << "Bureaucrat Two\n";
     formaTwo.beSigned(two);
-    two.signForm(formaTwo);
     formaTwo.execute(two);
     std::cout << "\n";
 
@@ -52,7 +58,6 @@ int main()
 
     std::cout << "Bureaucrat One\n";
     formaThree.beSigned(one);
-    one.signForm(formaThree);
     formaThree.execute(one);
     std::cout << "\n";
 

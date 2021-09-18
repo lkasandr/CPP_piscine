@@ -80,7 +80,6 @@ void Bureaucrat::signForm(Form &form)
     if (form.getIndicator() == 1)
     {
         std::cout << this->name << " signs " << form.getName() << std::endl;
-        form.setIndicator(0);
     }
     else
         std::cout << this->name << " can't sign " << form.getName() 

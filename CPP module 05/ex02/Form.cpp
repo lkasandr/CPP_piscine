@@ -53,10 +53,17 @@ int Form::getGradeExecute(void) const
 
 void Form::beSigned(Bureaucrat &man)
 {
-    if (man.getGrade() <= this->gradeSign)
-        this->signeIndicator = 1;
+    if (man.getGrade() > this->gradeSign)
+    {
+        this->setIndicator(0);
+        man.signForm(*this);
+        throw Form::GradeTooLowException();
+    }
     else
-        throw GradeTooLowException();
+    {
+        this->signeIndicator = 1;
+        man.signForm(*this);
+    }
 }
 
 std::ostream& operator<< (std::ostream &out, const Form& b)

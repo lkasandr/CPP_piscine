@@ -15,7 +15,7 @@ class ShrubberyCreationForm : public Form
         ShrubberyCreationForm(const ShrubberyCreationForm &copy);
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm &copy);
         ~ShrubberyCreationForm(void);
-        void execute (Bureaucrat const & executor) const;
+        virtual void execute (Bureaucrat const & executor) const;
 };
 
 #endif

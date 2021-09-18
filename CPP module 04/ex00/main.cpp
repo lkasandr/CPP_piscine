@@ -18,10 +18,10 @@ int main()
 	std::cout << wrongcat->getType() << " " << std::endl;
 	i->makeSound();
 	j->makeSound();
-	meta->makeSound();
+	// meta->makeSound();
 
 	wrongcat->makeSound();
-	beast->makeSound();
+	// beast->makeSound();
 
 
 	delete meta;
@@ -30,4 +30,5 @@ int main()
 
 	delete beast;
 	delete wrongcat;
+	return 0;
 }

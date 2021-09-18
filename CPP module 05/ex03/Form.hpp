@@ -39,6 +39,12 @@ class Form
                 const char* what() const throw();
         };
 
+         class IsSignedException : public std::exception
+        {
+            public:
+                const char* what() const throw();
+        };
+
 };
 
 std::ostream& operator<< (std::ostream &out, const Form& b);

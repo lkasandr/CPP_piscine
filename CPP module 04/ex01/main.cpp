@@ -3,6 +3,12 @@
 
 int main()
 {
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
+	basic.getBrain();
+
 	int index = 0;
     
 	Animal* animals[4];

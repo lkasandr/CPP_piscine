@@ -1,10 +1,10 @@
-NAME = materia
+NAME = sample
 
-SRCS = ./AMateria.cpp ./Character.cpp ./Cure.cpp ./Ice.cpp ./main.cpp ./MateriaSource.cpp
+SRCS = ./main.cpp
 
-HEADER = ./Ice.hpp ./ICharacter.hpp ./Cure.hpp ./Character.hpp ./AMateria.hpp ./IMateriaSource.hpp ./MateriaSource.hpp
+HEADER = ./whatever.hpp
 
-OBJS = $(SRCS:%.cpp=%.o)
+OBJS = $(SRCS:cpp=o)
 
 %.o:		%.cpp $(HEADER)
 			${CLANG} $(CPPFLAGS) -c $< -o ${<:.cpp=.o}

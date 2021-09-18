@@ -20,6 +20,8 @@ Fixed::Fixed(const Fixed &fixed) : fixedPointValue(fixed.fixedPointValue)
 Fixed& Fixed::operator= (const Fixed &fixed)
 {
 	std::cout << "Assignation operator called" << std::endl;
+	if (this == &fixed)
+		return *this;
 	fixedPointValue = fixed.getRawBits();
 	return *this;
 }

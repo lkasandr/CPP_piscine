@@ -48,6 +48,8 @@ std::ostream& operator<< (std::ostream &out, const Bureaucrat& b)
 
 void Bureaucrat::GradeHigh(void)
 {
+    if (this->grade == 1)
+        throw GradeTooHightException();
     this->grade--;
     if (this->grade < 1)
         throw GradeTooHightException();

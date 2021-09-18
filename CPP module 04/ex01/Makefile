@@ -16,7 +16,7 @@ RM =		rm -f
 all :		${NAME}
 
 $(NAME) :	$(OBJS) 
-			$(CLANG) $(CPPFLAGS) -o ${NAME} $(OBJS) -I
+			$(CLANG) $(CPPFLAGS) -o ${NAME} $(OBJS) -I.
 
 clean :		
 			$(RM) $(OBJS)

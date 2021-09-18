@@ -36,7 +36,6 @@ class Bureaucrat{
 		public:
 			const char* what() const throw();
 	};
-
 };
 
 std::ostream& operator<< (std::ostream &out, const Bureaucrat& b);

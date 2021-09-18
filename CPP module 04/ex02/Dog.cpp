@@ -8,8 +8,8 @@ Dog::Dog() : Animal("Dog")
 
 Dog::Dog(const Dog &dog)
 {
+	this->brain = NULL;
 	*this = dog;
-	std::cout << "Dog: copy constructor called" << std::endl;
 }
 
 Dog& Dog::operator= (const Dog &dog)
@@ -17,15 +17,28 @@ Dog& Dog::operator= (const Dog &dog)
 	if (&dog == this)
 		return *this;
 	this->type = dog.type;
-	delete this->brain;
+	if (this->brain)
+	{
+		delete this->brain;
+		this->brain = NULL;
+	}
 	this->brain = new Brain(*dog.brain);
 	return *this;
 }
 
 Dog::~Dog()
 {
-	delete this->brain;
+	if (this->brain)
+	{
+		delete this->brain;
+		this->brain = NULL;
+	}
 	std::cout << "Dog: destructor called" << std::endl;
+}
+
+Brain* Dog::getBrain(void)
+{
+	return this->brain;
 }
 
 void Dog::makeSound(void) const

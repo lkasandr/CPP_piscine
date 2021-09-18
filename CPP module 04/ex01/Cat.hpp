@@ -9,14 +9,12 @@ class Cat: public Animal
 	private:
 	Brain* brain;
 
-	protected:
-	std::string type;
-
 	public:
 	Cat();
 	Cat(const Cat &cat);
 	Cat& operator=(const Cat &cat);
-	~Cat();
+	virtual ~Cat();
+	Brain* getBrain(void);
 	virtual void makeSound(void) const;
 };
 

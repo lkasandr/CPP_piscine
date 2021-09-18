@@ -46,7 +46,7 @@ void MateriaSource::learnMateria(AMateria* copy)
 	{
 		if (!this->equipedArray[i])
 		{
-			this->equipedArray[i] = copy;
+			this->equipedArray[i] = copy->clone();
 			break;
 		}
 		i++;
@@ -63,7 +63,9 @@ AMateria* MateriaSource::createMateria(std::string const & type)
     {
         for (int i=0; i<4; i++)
 		{
-			if (this->equipedArray[i])
+			if (!this->equipedArray[i])
+				break;
+			else
 			{
 				getType = this->equipedArray[i]->getType();
 				if (!getType.compare(type))

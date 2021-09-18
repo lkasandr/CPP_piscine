@@ -15,7 +15,7 @@ class RobotomyRequestForm : public Form
         RobotomyRequestForm(const RobotomyRequestForm &copy);
         RobotomyRequestForm& operator=(const RobotomyRequestForm &copy);
         ~RobotomyRequestForm(void);
-        void execute (Bureaucrat const & executor) const;
+        virtual void execute (Bureaucrat const & executor) const;
 };
 
 #endif
