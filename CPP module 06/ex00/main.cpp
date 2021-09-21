@@ -3,7 +3,6 @@
 int main(int argc, char *argv[])
 {
     double changeValue;
-    std::string coutChar;
     std::string value;
     int coutInt;
 
@@ -15,27 +14,21 @@ int main(int argc, char *argv[])
     value = argv[1];
     //print char and get changeValue
     if (value.length() == 1 && !std::isdigit(value[0]))
-    {
         changeValue = static_cast<int>(value[0]);
-        if (changeValue >= 127 || changeValue <= 31)
-            coutChar = "Non displayable";
-        else
-            coutChar = static_cast<char>(changeValue);
-    }
+    else if (value == "+inf" || value == "+inff" || value == "-inf" || value == "-inff" || value == "nan" || value == "nanf" )
+        changeValue = std::atof(argv[1]);
     else if (value.length() != 1 && !std::isdigit(value[0]))
     {
-        coutChar = "impossible";
         changeValue = static_cast<int>(value[0]);
     }
     else
-    {
         changeValue = std::atof(argv[1]);
-        if (changeValue >= 127 || changeValue <= 31)
-            coutChar = "Non displayable";
-        else
-            coutChar = static_cast<char>(changeValue);
-    }
-    std::cout << "char: " << coutChar << std::endl;
+    if (std::isnan(changeValue) || std::isinf(changeValue) || changeValue < 0 || changeValue > 127)
+		std::cout << "char: impossible" << std::endl;
+    else if (changeValue < 127 && changeValue > 31)
+        std::cout << "char: '" << static_cast<char>(changeValue) << "'" << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
 
     //print int:
     if (value != "nan" && value != "-inf" && value != "+inf" && value != "-inff" && value != "+inff" && value != "nanf")

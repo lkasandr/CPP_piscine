@@ -43,7 +43,6 @@ void identify (Base * p)
     std::cout << "\n";
 }
 
-//ссылке нельзя присвоить NULL. поэтому через try/catch:
 void identify(Base& p)
 {
     std::cout << "identify(Base& p)" << std::endl;
