@@ -40,6 +40,11 @@ void Span::addNumber(int number)
     this->array.push_back(number);
 }
 
+int Span::getSpan(int c)
+{
+    return this->array[c];
+};
+
 void Span::addNumber(int number, unsigned int count)
 {
     std::vector<int>::iterator iter;
@@ -62,10 +67,14 @@ int Span::shortestSpan()
 
     if (this->array.size() == 0 || this->array.size() == 1)
         throw arrayException();
+    std::cout << this->array[1] << std::endl;
     std::sort(tmp.begin(), tmp.end());
     min = tmp[0];
     min2 = tmp[1];
-    shortSpan = std::abs(min - min2);
+    std::cout << tmp[0] << std::endl;
+    std::cout << this->array[1] << std::endl;
+    std::cout << tmp[1] << std::endl;
+    shortSpan = min2 - min;
     return shortSpan;
 }
 

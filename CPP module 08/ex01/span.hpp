@@ -25,6 +25,7 @@ class Span
             public:
                 const char* what() const throw();
         };
+        int getSpan(int c);
 };
 
 #endif

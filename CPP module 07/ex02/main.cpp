@@ -23,21 +23,25 @@ int main(int, char**)
         }
     }
     //SCOPE
-	// std::cout << "Numbers's size: " << numbers.size() << std::endl;
+	std::cout << "Numbers's size: " << numbers.size() << std::endl;
     {
         Array<int> tmp = numbers;
-		// std::cout << "Tmp's size: " << tmp.size() << std::endl;
+		std::cout << "Tmp's size: " << tmp.size() << std::endl;
+        std::cout << "Tmp's value: " << tmp[100] << std::endl;
+        std::cout << "numbers's value: " << numbers[100] << std::endl;
         Array<int> test(tmp);
-		// std::cout << "test's size: " << test.size() << std::endl;
+		std::cout << "test's size: " << test.size() << std::endl;
+        std::cout << "Tmp's value: " << tmp[100] << std::endl;
+        std::cout << "test's value: " << test[100] << std::endl;
     }
 
-	// Array<int> tmp2;
+	Array<int> tmp2;
 
-	// std::cout << "tmp2's size: " << tmp2.size() << std::endl;
+	std::cout << "tmp2's size: " << tmp2.size() << std::endl;
 	
     try
     {
-    //    std::cout << "test wrong index: " << std::endl;
+       std::cout << "test wrong index: " << std::endl;
 	   numbers[-2] = 0;
     }
     catch(const std::exception& e)
@@ -56,8 +60,9 @@ int main(int, char**)
 
 	try
     {
-        numbers[10] = 0;
-		// std::cout << "test for right index: " << numbers[10] << std::endl;
+        // numbers[10] = 0;
+		std::cout << "test for right index: " << std::endl;
+        std::cout << numbers[10] << std::endl;
     }
     catch(const std::exception& e)
     {
@@ -68,6 +73,14 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+    delete [] mirror;
+
+    Array<std::string> strings(2);
+
+    strings[0] = "odin dva";
+    strings[1] = "tri chetire";
+    std::cout << "test for strings: " << std::endl;
+    std::cout << strings[1] << std::endl;
+
     return 0;
 }

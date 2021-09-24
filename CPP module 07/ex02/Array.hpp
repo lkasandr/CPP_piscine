@@ -54,7 +54,7 @@ class Array
                 return (this->data[n]);
         };
 
-        const T& operator[](unsigned int n) const 
+        const T &operator[](unsigned int n) const 
         {
             if (n >= this->n || n < 0)
                 throw indexException();
@@ -75,7 +75,5 @@ class Array
         };
         
 };
-
-
 
 #endif

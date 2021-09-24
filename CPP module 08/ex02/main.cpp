@@ -81,5 +81,34 @@ int main()
         std::cout << *charReverseIterator << std::endl;
         charReverseIterator++;
     }
+
+    MutantStack<float, std::vector<float> > floatStack;
+    floatStack.push(0.32);
+    floatStack.push(123.342);
+    floatStack.push(345.645);
+    std::cout << "_________________" << std::endl;
+    std::cout << "Vector float: Iterator: " << std::endl;
+    
+    MutantStack<float, std::vector<float> >::iterator vectorIterator;
+    vectorIterator = floatStack.begin();
+    while(vectorIterator != floatStack.end())
+    {
+        std::cout << *vectorIterator << std::endl;
+        vectorIterator++;
+    }
+    std::cout << "_________________" << std::endl;
+    std::cout << "Vector float: reverse Iterator: " << std::endl;
+    
+    MutantStack<float, std::vector<float> >::reverse_iterator reverseFloatIterator;
+    reverseFloatIterator = floatStack.rbegin();
+    while(reverseFloatIterator != floatStack.rend())
+    {
+        std::cout << *reverseFloatIterator << std::endl;
+        reverseFloatIterator++;
+    }
+
+    
     return 0;
 }
+
+//clang++ -Wall -Wextra -Werror -std=c++98 main.cpp mutantstack.cpp mutantstack.hpp
